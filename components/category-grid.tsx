@@ -1,7 +1,9 @@
 "use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+import Image from "next/image"
 
 const categories = [
   {
@@ -77,10 +79,12 @@ export function CategoryGrid() {
               href={`/categorias/${category.slug}`}
               className="group relative aspect-[4/5] overflow-hidden rounded-lg bg-secondary"
             >
-              <img
+              <Image
                 src={category.image || "/placeholder.svg"}
                 alt={category.name}
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
