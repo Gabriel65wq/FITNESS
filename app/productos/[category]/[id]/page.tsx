@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronLeft } from "lucide-react"
+import { Star, ChevronLeft } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -67,6 +67,21 @@ export default function ProductPage({ params }: { params: { category: string; id
             <div className="space-y-6">
               <div>
                 <h1 className="text-4xl font-bold mb-4">{product.name}</h1>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`w-5 h-5 ${
+                          i < Math.floor(product.rating) ? "fill-yellow-400 text-yellow-400" : "text-muted-foreground"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <span className="text-muted-foreground">
+                    {product.rating} — {product.reviewCount} reseñas
+                  </span>
+                </div>
                 <hr className="border-border" />
               </div>
 
