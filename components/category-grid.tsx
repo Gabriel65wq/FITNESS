@@ -81,9 +81,6 @@ export function CategoryGrid() {
                 src={category.image || "/placeholder.svg"}
                 alt={category.name}
                 className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                onError={(e) => {
-                  e.currentTarget.src = "/placeholder.svg?height=800&width=600"
-                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
